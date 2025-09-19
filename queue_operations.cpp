@@ -118,6 +118,7 @@ class llqueue
             if(front==NULL)
             {
                 front = rear = newn;
+                newn->next = NULL;
                 return;
             }
             rear->next = newn;
@@ -140,9 +141,9 @@ class llqueue
             if(front==NULL)
             {
                 cout << "Queue empty" << endl;
-            return;
-        }
-        Node *temp = front;
+                return;
+            }
+            Node *temp = front;
             while(temp!=NULL)
             {
                 cout<<temp->data<<" ";
