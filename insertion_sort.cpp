@@ -39,3 +39,31 @@ int main()
     }
     cout << endl;
 }
+
+/*
+void insertionSort(std::vector<int>& arr) {
+    int n = arr.size();
+    
+    // Start from the second element (index 1)
+    for (int i = 1; i < n; i++) {
+        
+        // 1. Store the element we want to insert
+        int temp = arr[i];
+        
+        // 2. Start checking elements to its left
+        int j = i - 1;
+
+        // 3. Find the spot AND shift elements at the same time
+        //    Move elements of arr[0..i-1] that are greater than temp
+        //    to one position ahead of their current position
+
+        while (j >= 0 && arr[j] > temp) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        
+        // 4. We found the spot. 'j+1' is the correct position for 'temp'.
+        arr[j + 1] = temp;
+    }
+}
+*/
