@@ -85,7 +85,7 @@ public:
             if (u == -1) break;
 
             mstSet[u] = true;
-
+            //cout << "u: " << u << endl;
             AdjListNode* temp = adj[u];
             while (temp != nullptr) {
                 int v = temp->dest;
@@ -97,6 +97,14 @@ public:
                 }
                 temp = temp->next;
             }
+
+            /*
+            cout << "count: " << count << " : " ;
+            for (int i = 0; i < V; i++) {
+                cout << parent[i] << " " ;
+            }
+            cout << endl;
+            */
         }
 
         cout << "Prim's MST (Adjacency List):" << endl;
