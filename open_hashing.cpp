@@ -69,6 +69,7 @@ public:
         while (current != nullptr) {
             if (current->key == key) {
                 cout << "Found key: " << key << ", Value: " << current->value << endl;
+                return;
             }
             current = current->next;
         }
