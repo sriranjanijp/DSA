@@ -20,6 +20,33 @@ bool insert(Node* &root, int val) {
     return insert(root->right, val);
 }
 
+/*
+Node* insert_simplified(Node* &root, int val) {
+    if (root == nullptr) {
+        root = new Node(val);
+        return root; // Return the new node
+    }
+    
+    // Recursively check left side
+    Node* inserted = insert_simplified(root->left, val);
+    if (inserted != nullptr) {
+        // If inserted on the left, return that pointer up the chain
+        return inserted;
+    }
+
+    // Recursively check right side
+    inserted = insert_simplified(root->right, val);
+    if (inserted != nullptr) {
+        // If inserted on the right, return that pointer up the chain
+        return inserted;
+    }
+
+    // If both left and right branches returned nullptr (which shouldn't happen 
+    // with your current logic, but is good practice), return nullptr.
+    return nullptr;
+}
+*/
+
 bool deleteLeaf(Node* &root, int val) {
     if (root == nullptr) return false;
     if (root->left && root->left->data == val && !root->left->left && !root->left->right) {
@@ -34,6 +61,30 @@ bool deleteLeaf(Node* &root, int val) {
     }
     return deleteLeaf(root->left, val) || deleteLeaf(root->right, val);
 }
+
+/*
+Node* deleteLeaf(Node* root, int val) {
+    // 1. Base Case 1: If the subtree is empty, return nullptr.
+    if (root == nullptr) {
+        return nullptr;
+    }
+
+    // 2. Base Case 2: Found the node to be deleted.
+    // Check if the current node is the leaf node with the matching value.
+    if (root->data == val && root->left == nullptr && root->right == nullptr) {
+        delete root;
+        return nullptr; // Deleting the leaf node, so return nullptr to the parent.
+    }
+
+    // 3. Recursive Step: Search and modify the subtrees.
+    // The recursive calls update the left/right pointers of the current root.
+    root->left = deleteLeaf(root->left, val);
+    root->right = deleteLeaf(root->right, val);
+
+    // 4. Return the (unchanged) current root pointer.
+    return root;
+}
+*/
 
 void inorder(Node* root) {
     if (root) {
